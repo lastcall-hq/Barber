@@ -776,6 +776,377 @@
       to   { transform: translateX(-50%); }
     }
 
+    /* GALLERY */
+    .gallery-section {
+      padding: 120px 60px;
+      background: var(--black);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+      margin-top: 80px;
+    }
+
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      background: var(--charcoal);
+      cursor: none;
+    }
+
+    .gallery-item:first-child {
+      grid-column: span 2;
+      aspect-ratio: 16/9;
+    }
+
+    .gallery-visual {
+      width: 100%; height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.6s ease;
+    }
+
+    .gallery-item:hover .gallery-visual { transform: scale(1.04); }
+
+    .gallery-before-after {
+      position: relative;
+      width: 100%; height: 100%;
+      overflow: hidden;
+    }
+
+    .gallery-panel {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease;
+    }
+
+    .gallery-panel.after { opacity: 0; }
+    .gallery-item:hover .gallery-panel.before { opacity: 0; }
+    .gallery-item:hover .gallery-panel.after  { opacity: 1; }
+
+    .gallery-ba-label {
+      position: absolute;
+      bottom: 16px; left: 16px;
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(10,9,8,0.75);
+      padding: 6px 12px;
+      z-index: 2;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-item:hover .gallery-ba-label { opacity: 0; }
+
+    .gallery-after-label {
+      position: absolute;
+      bottom: 16px; left: 16px;
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(10,9,8,0.75);
+      padding: 6px 12px;
+      z-index: 2;
+      opacity: 0;
+      transition: opacity 0.4s ease 0.2s;
+    }
+
+    .gallery-item:hover .gallery-after-label { opacity: 1; }
+
+    .gallery-tag {
+      position: absolute;
+      top: 16px; right: 16px;
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: rgba(10,9,8,0.6);
+      padding: 5px 10px;
+    }
+
+    /* SVG placeholder styles for gallery */
+    .cut-svg {
+      width: 100%; height: 100%;
+      position: absolute;
+      inset: 0;
+    }
+
+    /* BOOKING FORM */
+    .booking-section {
+      padding: 120px 60px;
+      background: var(--charcoal);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .booking-section::before {
+      content: 'ROMAN';
+      position: absolute;
+      font-family: 'Playfair Display', serif;
+      font-size: 280px;
+      font-weight: 900;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(201,168,76,0.05);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      pointer-events: none;
+      letter-spacing: 0.1em;
+    }
+
+    .booking-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .booking-left { }
+
+    .booking-perks {
+      margin-top: 52px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .booking-perk {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .perk-icon {
+      width: 40px; height: 40px;
+      border: 1px solid var(--gold-dim);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 16px;
+      color: var(--gold);
+    }
+
+    .perk-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .perk-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .booking-form {
+      background: var(--dark);
+      padding: 52px;
+      border: 1px solid var(--mid);
+    }
+
+    .form-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .form-subtitle {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 40px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: var(--mid);
+      border: 1px solid transparent;
+      color: var(--cream);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      padding: 14px 16px;
+      outline: none;
+      transition: border-color 0.3s ease;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold-dim);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--gold-dim);
+      opacity: 0.5;
+    }
+
+    .form-group select option {
+      background: var(--dark);
+      color: var(--cream);
+    }
+
+    .form-group textarea {
+      resize: none;
+      height: 90px;
+    }
+
+    .form-select-wrap {
+      position: relative;
+    }
+
+    .form-select-wrap::after {
+      content: '↓';
+      position: absolute;
+      right: 16px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--gold-dim);
+      pointer-events: none;
+      font-size: 14px;
+    }
+
+    .time-slots {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .time-slot {
+      background: var(--mid);
+      border: 1px solid transparent;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      padding: 10px 6px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .time-slot:hover {
+      border-color: var(--gold-dim);
+      color: var(--cream);
+    }
+
+    .time-slot.selected {
+      background: var(--gold);
+      color: var(--black);
+      border-color: var(--gold);
+    }
+
+    .time-slot.unavailable {
+      opacity: 0.3;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .time-slot-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 18px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-submit:hover { background: var(--gold-light); }
+
+    .btn-submit.submitted {
+      background: var(--gold-dim);
+      pointer-events: none;
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 40px 0;
+    }
+
+    .form-success.visible { display: block; }
+
+    .success-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .success-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-style: italic;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .success-msg {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
     /* Scroll reveal */
     .reveal {
       opacity: 0;
@@ -802,6 +1173,7 @@
     <div class="nav-logo">Roman</div>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
       <li><a href="#process">How It Works</a></li>
       <li><a href="#reviews">Reviews</a></li>
     </ul>
@@ -1033,15 +1405,259 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-section" id="book">
-    <div class="reveal">
-      <div class="cta-label">Ready for a Cut?</div>
-      <h2 class="cta-title">Book Your<br><em>Session</em></h2>
-      <p class="cta-sub">Available 7 days a week, 8am–9pm. Same-day slots sometimes available — check now.</p>
-      <div class="cta-actions">
-        <a href="#" class="btn-primary" style="padding: 20px 52px; font-size:12px;"><span>Reserve a Time</span></a>
-        <a href="tel:+12125550189" class="btn-ghost" style="color:var(--muted);">Or Call Directly</a>
+  <!-- GALLERY -->
+  <section class="gallery-section" id="gallery">
+    <div class="section-header reveal">
+      <div>
+        <div class="section-label">The Work</div>
+        <h2 class="section-title">Before &<br><em>After</em></h2>
+      </div>
+      <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:0.15em;">Hover to reveal</span>
+    </div>
+    <div class="gallery-grid">
+
+      <!-- Item 1 - large -->
+      <div class="gallery-item reveal">
+        <div class="gallery-before-after">
+          <div class="gallery-panel before">
+            <svg class="cut-svg" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+              <rect width="800" height="450" fill="#1c1917"/>
+              <circle cx="400" cy="160" r="80" fill="#2a2723"/>
+              <rect x="300" y="230" width="200" height="220" rx="20" fill="#2a2723"/>
+              <!-- Messy hair -->
+              <ellipse cx="400" cy="100" rx="95" ry="55" fill="#3a3530"/>
+              <path d="M320 90 Q340 60 360 80 Q380 50 400 75 Q420 50 440 75 Q460 65 480 90" stroke="#4a4540" stroke-width="8" fill="none"/>
+              <path d="M310 100 Q330 70 350 90" stroke="#4a4540" stroke-width="6" fill="none"/>
+              <path d="M490 100 Q470 70 450 88" stroke="#4a4540" stroke-width="6" fill="none"/>
+              <text x="400" y="420" text-anchor="middle" font-family="'Courier New',monospace" font-size="10" fill="#7a6330" letter-spacing="3">BEFORE</text>
+            </svg>
+          </div>
+          <div class="gallery-panel after">
+            <svg class="cut-svg" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+              <rect width="800" height="450" fill="#141210"/>
+              <circle cx="400" cy="160" r="80" fill="#2a2723"/>
+              <rect x="300" y="230" width="200" height="220" rx="20" fill="#2a2723"/>
+              <!-- Clean fade -->
+              <ellipse cx="400" cy="105" rx="78" ry="38" fill="#1a1715"/>
+              <rect x="322" y="105" width="156" height="30" fill="#1a1715"/>
+              <!-- Sharp fade lines -->
+              <path d="M322 135 Q360 125 400 122 Q440 120 478 132" stroke="#c9a84c" stroke-width="1.5" fill="none" opacity="0.6"/>
+              <text x="400" y="420" text-anchor="middle" font-family="'Courier New',monospace" font-size="10" fill="#c9a84c" letter-spacing="3">AFTER</text>
+            </svg>
+          </div>
+        </div>
+        <div class="gallery-ba-label">Before — Hover</div>
+        <div class="gallery-after-label">After ✦</div>
+        <div class="gallery-tag">Signature Fade</div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="gallery-item reveal reveal-delay-1">
+        <div class="gallery-before-after">
+          <div class="gallery-panel before">
+            <svg class="cut-svg" viewBox="0 0 400 530" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="530" fill="#1c1917"/>
+              <circle cx="200" cy="180" r="85" fill="#2a2723"/>
+              <rect x="115" y="255" width="170" height="275" rx="18" fill="#2a2723"/>
+              <!-- Unkempt beard -->
+              <path d="M130 220 Q160 280 200 290 Q240 280 270 220 Q255 310 200 320 Q145 310 130 220Z" fill="#3a3530"/>
+              <path d="M135 230 Q155 260 175 270" stroke="#4a4540" stroke-width="4" fill="none"/>
+              <path d="M265 230 Q245 260 225 268" stroke="#4a4540" stroke-width="4" fill="none"/>
+              <text x="200" y="510" text-anchor="middle" font-family="'Courier New',monospace" font-size="10" fill="#7a6330" letter-spacing="3">BEFORE</text>
+            </svg>
+          </div>
+          <div class="gallery-panel after">
+            <svg class="cut-svg" viewBox="0 0 400 530" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="530" fill="#141210"/>
+              <circle cx="200" cy="180" r="85" fill="#2a2723"/>
+              <rect x="115" y="255" width="170" height="275" rx="18" fill="#2a2723"/>
+              <!-- Sculpted beard -->
+              <path d="M145 215 Q168 255 200 265 Q232 255 255 215 Q242 285 200 298 Q158 285 145 215Z" fill="#1a1715"/>
+              <!-- Sharp lines -->
+              <path d="M145 215 L148 220" stroke="#c9a84c" stroke-width="1.5" opacity="0.8"/>
+              <path d="M255 215 L252 220" stroke="#c9a84c" stroke-width="1.5" opacity="0.8"/>
+              <path d="M148 222 Q174 250 200 258 Q226 250 252 222" stroke="#c9a84c" stroke-width="1" fill="none" opacity="0.4"/>
+              <text x="200" y="510" text-anchor="middle" font-family="'Courier New',monospace" font-size="10" fill="#c9a84c" letter-spacing="3">AFTER</text>
+            </svg>
+          </div>
+        </div>
+        <div class="gallery-ba-label">Before — Hover</div>
+        <div class="gallery-after-label">After ✦</div>
+        <div class="gallery-tag">Beard Architecture</div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="gallery-item reveal reveal-delay-2">
+        <div class="gallery-before-after">
+          <div class="gallery-panel before">
+            <svg class="cut-svg" viewBox="0 0 400 530" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="530" fill="#1c1917"/>
+              <circle cx="200" cy="180" r="85" fill="#2a2723"/>
+              <rect x="115" y="255" width="170" height="275" rx="18" fill="#2a2723"/>
+              <!-- Overgrown top -->
+              <ellipse cx="200" cy="108" rx="92" ry="62" fill="#3a3530"/>
+              <path d="M120 110 Q150 70 180 95 Q200 60 220 90 Q250 65 280 108" stroke="#4a4540" stroke-width="7" fill="none"/>
+              <text x="200" y="510" text-anchor="middle" font-family="'Courier New',monospace" font-size="10" fill="#7a6330" letter-spacing="3">BEFORE</text>
+            </svg>
+          </div>
+          <div class="gallery-panel after">
+            <svg class="cut-svg" viewBox="0 0 400 530" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="530" fill="#141210"/>
+              <circle cx="200" cy="180" r="85" fill="#2a2723"/>
+              <rect x="115" y="255" width="170" height="275" rx="18" fill="#2a2723"/>
+              <!-- Clean crop -->
+              <ellipse cx="200" cy="112" rx="76" ry="42" fill="#1a1715"/>
+              <path d="M124 140 Q162 128 200 126 Q238 124 276 138" stroke="#c9a84c" stroke-width="1.5" fill="none" opacity="0.5"/>
+              <text x="200" y="510" text-anchor="middle" font-family="'Courier New',monospace" font-size="10" fill="#c9a84c" letter-spacing="3">AFTER</text>
+            </svg>
+          </div>
+        </div>
+        <div class="gallery-ba-label">Before — Hover</div>
+        <div class="gallery-after-label">After ✦</div>
+        <div class="gallery-tag">Classic Crop</div>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="gallery-item reveal reveal-delay-3">
+        <div class="gallery-before-after">
+          <div class="gallery-panel before">
+            <svg class="cut-svg" viewBox="0 0 400 530" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="530" fill="#1c1917"/>
+              <circle cx="200" cy="180" r="85" fill="#2a2723"/>
+              <rect x="115" y="255" width="170" height="275" rx="18" fill="#2a2723"/>
+              <ellipse cx="200" cy="105" rx="90" ry="58" fill="#3a3530"/>
+              <path d="M115 120 Q145 85 175 100 Q195 72 215 98 Q245 78 285 118" stroke="#4a4540" stroke-width="6" fill="none"/>
+              <!-- Patchy beard -->
+              <ellipse cx="185" cy="240" rx="22" ry="15" fill="#3a3530" opacity="0.7"/>
+              <ellipse cx="215" cy="242" rx="20" ry="13" fill="#3a3530" opacity="0.7"/>
+              <ellipse cx="200" cy="260" rx="28" ry="12" fill="#3a3530" opacity="0.6"/>
+              <text x="200" y="510" text-anchor="middle" font-family="'Courier New',monospace" font-size="10" fill="#7a6330" letter-spacing="3">BEFORE</text>
+            </svg>
+          </div>
+          <div class="gallery-panel after">
+            <svg class="cut-svg" viewBox="0 0 400 530" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="530" fill="#141210"/>
+              <circle cx="200" cy="180" r="85" fill="#2a2723"/>
+              <rect x="115" y="255" width="170" height="275" rx="18" fill="#2a2723"/>
+              <ellipse cx="200" cy="110" rx="76" ry="40" fill="#1a1715"/>
+              <path d="M124 138 Q162 127 200 125 Q238 123 276 136" stroke="#c9a84c" stroke-width="1.5" fill="none" opacity="0.5"/>
+              <!-- Clean full beard -->
+              <path d="M150 218 Q172 268 200 278 Q228 268 250 218 Q238 295 200 305 Q162 295 150 218Z" fill="#1a1715"/>
+              <path d="M150 220 Q176 258 200 266 Q224 258 250 220" stroke="#c9a84c" stroke-width="1" fill="none" opacity="0.35"/>
+              <text x="200" y="510" text-anchor="middle" font-family="'Courier New',monospace" font-size="10" fill="#c9a84c" letter-spacing="3">AFTER</text>
+            </svg>
+          </div>
+        </div>
+        <div class="gallery-ba-label">Before — Hover</div>
+        <div class="gallery-after-label">After ✦</div>
+        <div class="gallery-tag">Full Ritual</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BOOKING FORM -->
+  <section class="booking-section" id="book">
+    <div class="booking-inner reveal">
+      <div class="booking-left">
+        <div class="section-label">Reserve Your Slot</div>
+        <h2 class="section-title">Book Your<br><em>Session</em></h2>
+        <div class="booking-perks">
+          <div class="booking-perk">
+            <div class="perk-icon">✦</div>
+            <div>
+              <div class="perk-title">We Come to You</div>
+              <div class="perk-desc">Home, hotel, office — wherever works. Full kit, zero setup on your end.</div>
+            </div>
+          </div>
+          <div class="booking-perk">
+            <div class="perk-icon">◈</div>
+            <div>
+              <div class="perk-title">Same-Day Available</div>
+              <div class="perk-desc">Last-minute slots often open. Check availability for today before you book.</div>
+            </div>
+          </div>
+          <div class="booking-perk">
+            <div class="perk-icon">◇</div>
+            <div>
+              <div class="perk-title">Free Cancellation</div>
+              <div class="perk-desc">Cancel or reschedule up to 3 hours before your appointment, no charge.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking-form">
+        <div id="bookingFormWrap">
+          <div class="form-title">Reserve a Time</div>
+          <div class="form-subtitle">Available 7 days · 8am – 9pm</div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" placeholder="James" id="fname"/>
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="Monroe" id="lname"/>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="you@example.com" id="email"/>
+          </div>
+
+          <div class="form-group">
+            <label>Service</label>
+            <div class="form-select-wrap">
+              <select id="service">
+                <option value="" disabled selected>Select a service</option>
+                <option>The Signature Cut — from $85</option>
+                <option>Classic Hot Shave — from $70</option>
+                <option>The Full Ritual — from $140</option>
+                <option>Beard Architecture — from $55</option>
+                <option>Event Ready — from $120</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" id="bookdate"/>
+          </div>
+
+          <div class="form-group">
+            <div class="time-slot-label">Available Times</div>
+            <div class="time-slots">
+              <div class="time-slot" onclick="selectSlot(this)">8:00 AM</div>
+              <div class="time-slot" onclick="selectSlot(this)">9:00 AM</div>
+              <div class="time-slot unavailable">10:00 AM</div>
+              <div class="time-slot" onclick="selectSlot(this)">11:00 AM</div>
+              <div class="time-slot unavailable">12:00 PM</div>
+              <div class="time-slot" onclick="selectSlot(this)">1:00 PM</div>
+              <div class="time-slot" onclick="selectSlot(this)">2:00 PM</div>
+              <div class="time-slot unavailable">3:00 PM</div>
+              <div class="time-slot" onclick="selectSlot(this)">4:00 PM</div>
+              <div class="time-slot" onclick="selectSlot(this)">5:00 PM</div>
+              <div class="time-slot" onclick="selectSlot(this)">6:00 PM</div>
+              <div class="time-slot" onclick="selectSlot(this)">7:00 PM</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Location / Notes</label>
+            <textarea placeholder="Your address, hotel, or any special requests..." id="notes"></textarea>
+          </div>
+
+          <button class="btn-submit" id="submitBtn" onclick="submitBooking()">Confirm Booking</button>
+        </div>
+
+        <div class="form-success" id="formSuccess">
+          <div class="success-icon">✦</div>
+          <div class="success-title">You're Booked.</div>
+          <div class="success-msg">Confirmation sent to your email. Roman will arrive sharp, on time, ready to work.</div>
+        </div>
       </div>
     </div>
   </section>
@@ -1097,6 +1713,56 @@
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.12 });
     reveals.forEach(el => observer.observe(el));
+
+    // Time slot selection
+    function selectSlot(el) {
+      document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+
+    // Set min date to today
+    const dateInput = document.getElementById('bookdate');
+    if (dateInput) {
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.min = today;
+      dateInput.value = today;
+    }
+
+    // Booking form submit
+    function submitBooking() {
+      const fname = document.getElementById('fname').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const service = document.getElementById('service').value;
+      const selected = document.querySelector('.time-slot.selected');
+
+      if (!fname || !email || !service || !selected) {
+        const btn = document.getElementById('submitBtn');
+        btn.textContent = 'Please fill all fields';
+        btn.style.background = 'var(--gold-dim)';
+        setTimeout(() => {
+          btn.textContent = 'Confirm Booking';
+          btn.style.background = '';
+        }, 2000);
+        return;
+      }
+
+      document.getElementById('bookingFormWrap').style.display = 'none';
+      document.getElementById('formSuccess').classList.add('visible');
+    }
+
+    // Cursor hover on gallery and form elements
+    document.querySelectorAll('.gallery-item, input, select, textarea, .time-slot, .btn-submit').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.transform = 'translate(-50%,-50%) scale(2)';
+        ring.style.transform = 'translate(-50%,-50%) scale(1.5)';
+        ring.style.borderColor = 'var(--gold)';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.style.transform = 'translate(-50%,-50%) scale(1)';
+        ring.style.transform = 'translate(-50%,-50%) scale(1)';
+        ring.style.borderColor = 'var(--gold-dim)';
+      });
+    });
   </script>
 </body>
 </html>
